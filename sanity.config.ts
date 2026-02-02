@@ -2,9 +2,10 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
+import {structure} from './structure'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
-const singletonTypes = new Set(['footer', 'headerOffcanvas'])
+const singletonTypes = new Set(['footer', 'headerOffcanvas', 'robotsTxt'])
 
 export default defineConfig({
   name: 'default',
@@ -15,23 +16,7 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: (S: import('sanity/structure').StructureBuilder) =>
-        S.list()
-          .title('Content')
-          .items([
-            S.listItem()
-              .title('Footer')
-              .id('footer')
-              .child(S.document().schemaType('footer').documentId('footer')),
-            S.listItem()
-              .title('Header Offcanvas')
-              .id('headerOffcanvas')
-              .child(S.document().schemaType('headerOffcanvas').documentId('headerOffcanvas')),
-            ...S.documentTypeListItems().filter(
-              (item: {getId?: () => string | undefined}) =>
-                item.getId?.() && !singletonTypes.has(item.getId()!),
-            ),
-          ]),
+      structure,
     }),
     visionTool(),
   ],
