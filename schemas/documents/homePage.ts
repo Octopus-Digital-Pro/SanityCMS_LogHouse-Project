@@ -30,6 +30,8 @@ export const homePage = defineType({
       of: [
         {type: 'infoBlock'},
         {type: 'hero'},
+        {type: 'accordion'},
+        {type: 'clients'},
         // add more modules later: {type: 'hero'}, {type: 'gallery'}, ...
       ],
       validation: (Rule) => Rule.required().min(1),
