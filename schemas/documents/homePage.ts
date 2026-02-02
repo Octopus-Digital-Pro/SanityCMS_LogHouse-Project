@@ -36,6 +36,21 @@ export const homePage = defineType({
       ],
       validation: (Rule) => Rule.required().min(1),
     }),
+
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'object',
+      fields: [
+        {name: 'title', type: 'string', title: 'SEO Title'},
+        {name: 'description', type: 'text', title: 'Meta Description'},
+        {name: 'ogTitle', type: 'string', title: 'Open Graph Title'},
+        {name: 'ogDescription', type: 'text', title: 'Open Graph Description'},
+        {name: 'ogImage', type: 'image', title: 'Open Graph Image'},
+        {name: 'noIndex', type: 'boolean', title: 'No Index'},
+        {name: 'noFollow', type: 'boolean', title: 'No Follow'},
+      ],
+    }),
   ],
 
   preview: {

@@ -9,6 +9,7 @@ import {hero} from '../schemas/objects/hero'
 import {accordion} from '../schemas/objects/accordion'
 import {clients} from '../schemas/objects/clients'
 import {headerOffcanvas} from '../schemas/documents/headerOffcanvas'
+import {robotsTxt} from '../schemas/documents/robotsTxt'
 
 export const schemaTypes = [
   eventType,
@@ -16,6 +17,7 @@ export const schemaTypes = [
   homePage,
   footer,
   headerOffcanvas,
+  robotsTxt,
   infoBlock,
   hero,
   accordion,
