@@ -23,10 +23,7 @@ export const page = defineType({
       name: 'sections',
       title: 'Sections',
       type: 'array',
-      of: [
-        {type: 'infoBlock'},
-        // Later you’ll add more modules here: hero, gallery, CTA, etc.
-      ],
+      of: [{type: 'infoBlock'}, {type: 'hero'}, {type: 'accordion'}, {type: 'clients'}],
       validation: (Rule) => Rule.required().min(1),
     }),
 
