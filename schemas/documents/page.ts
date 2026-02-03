@@ -6,6 +6,14 @@ export const page = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+      initialValue: 'en',
+    }),
+    defineField({
       name: 'title',
       title: 'Page title',
       type: 'string',
@@ -23,7 +31,13 @@ export const page = defineType({
       name: 'sections',
       title: 'Sections',
       type: 'array',
-      of: [{type: 'infoBlock'}, {type: 'hero'}, {type: 'accordion'}, {type: 'clients'}],
+      of: [
+        {type: 'infoBlock'},
+        {type: 'hero'},
+        {type: 'accordion'},
+        {type: 'clients'},
+        {type: 'portfolioSection'},
+      ],
       validation: (Rule) => Rule.required().min(1),
     }),
 

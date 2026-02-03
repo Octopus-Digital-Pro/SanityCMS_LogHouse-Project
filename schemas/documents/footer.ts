@@ -7,6 +7,14 @@ export const footer = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      title: 'Language',
+      hidden: false,
+      readOnly: false,
+      type: 'string',
+      initialValue: 'en',
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -85,10 +93,13 @@ export const footer = defineType({
     }),
   ],
   preview: {
-    prepare() {
+    select: {language: 'language'},
+    prepare({language}) {
       return {
-        title: 'Global Footer',
-        subtitle: 'Site-wide footer settings',
+        title: 'Footer',
+        subtitle: language
+          ? `${language.toUpperCase()} · Site-wide footer`
+          : 'Site-wide footer settings',
       }
     },
   },

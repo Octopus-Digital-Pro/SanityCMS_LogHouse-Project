@@ -1,11 +1,12 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
+import {documentInternationalization} from '@sanity/document-internationalization'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
-const singletonTypes = new Set(['footer', 'headerOffcanvas', 'robotsTxt'])
+const singletonTypes = new Set(['headerOffcanvas', 'robotsTxt'])
 
 export default defineConfig({
   name: 'default',
@@ -19,6 +20,13 @@ export default defineConfig({
       structure,
     }),
     visionTool(),
+    documentInternationalization({
+      supportedLanguages: [
+        {id: 'en', title: 'English'},
+        {id: 'hu', title: 'Hungarian'},
+      ],
+      schemaTypes: ['page', 'homePage', 'footer'],
+    }),
   ],
 
   schema: {

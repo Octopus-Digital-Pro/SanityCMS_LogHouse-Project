@@ -6,6 +6,14 @@ export const homePage = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+      initialValue: 'en',
+    }),
+    defineField({
       name: 'title',
       title: 'Internal title',
       type: 'string',
@@ -32,6 +40,7 @@ export const homePage = defineType({
         {type: 'hero'},
         {type: 'accordion'},
         {type: 'clients'},
+        {type: 'portfolioSection'},
         // add more modules later: {type: 'hero'}, {type: 'gallery'}, ...
       ],
       validation: (Rule) => Rule.required().min(1),
@@ -54,10 +63,11 @@ export const homePage = defineType({
   ],
 
   preview: {
-    prepare() {
+    select: {language: 'language'},
+    prepare({language}) {
       return {
         title: 'Home page',
-        subtitle: '/',
+        subtitle: language ? `${language.toUpperCase()} · /` : '/',
       }
     },
   },

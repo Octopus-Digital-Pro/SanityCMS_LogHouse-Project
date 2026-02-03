@@ -35,11 +35,11 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title('Globals')
             .items([
-              // Footer singleton
+              // Footer (one per locale)
               S.listItem()
                 .title('Footer')
                 .icon(CogIcon)
-                .child(S.document().schemaType('footer').documentId('footer')),
+                .child(S.documentTypeList('footer').title('Footer')),
 
               // Header Offcanvas singleton
               S.listItem()

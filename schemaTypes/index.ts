@@ -7,6 +7,7 @@ import {infoBlock} from '../schemas/objects/infoBlock'
 import {hero} from '../schemas/objects/hero'
 import {accordion} from '../schemas/objects/accordion'
 import {clients} from '../schemas/objects/clients'
+import {portfolioSection} from '../schemas/documents/portfolioSection'
 import {headerOffcanvas} from '../schemas/documents/headerOffcanvas'
 import {robotsTxt} from '../schemas/documents/robotsTxt'
 
@@ -21,4 +22,5 @@ export const schemaTypes = [
   hero,
   accordion,
   clients,
+  portfolioSection,
 ]
